@@ -1,0 +1,58 @@
+<!doctype html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<link href="http://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="css/iThing.css" type="text/css" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<script src="js/papaparse.min.js"></script>
+<script src="js/moment.js"></script>
+<script src="js/Chart.min.js"></script>
+<script src="js/jQDateRangeSlider-min.js"></script>
+<script src="js/function.js"></script>
+
+<script>
+   FontAwesomeConfig = { searchPseudoElements: true };
+</script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+</head>
+
+<body onload="inflateView();">
+
+	
+	<div class="main-content">
+		<div class="row" id="data-row">
+			<div class="left-container">
+				<div class="data-block inner-temperature active">
+					<span class="big-single-value" ><span id="inner-temp-value">0</span>°C</span>
+					<span class="big-single-value" ><span id="inner-humidity-value">0</span>%</span> Luftfeuchtigkeit.
+				</div>
+				<div class="data-block outer-temperature">
+					<span class="big-single-value" ><span id="outer-temp-value">0</span>°C</span>
+					<span class="big-single-value" ><span id="outer-humidity-value">0</span>%</span> Luftfeuchtigkeit.
+				</div>
+			</div>
+			
+			<div class="right-container">
+				<div class="chart-wrapper">
+					<canvas id="line-chart"></canvas>
+				</div>
+				
+			</div>
+		</div>	
+		
+		<div class="row" id="bottom-row">	
+			<div class="download-block">
+				<p>Excel-Datei herunterladen</p>
+			</div>
+			
+			<div class="slider-wrapper">
+				<div id="slider"></div>
+			</div>
+		</div>
+	</div>
+	
+	</body>
+</html>

@@ -1,0 +1,150 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+body {
+  font-family: Lato;
+  background: linear-gradient(#24376e, #30a5be, #24376e);
+  background-repeat: no-repeat;
+}
+.main-content {
+  background: #ffffffe6;
+  margin: 15px;
+  padding: 15px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+}
+.row {
+  display: -ms-flexbox;
+  display: flex;
+}
+#data-row .left-container {
+  float: left;
+  width: 25%;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  margin-right: 10px;
+  position: relative;
+}
+#data-row .left-container:after {
+  display: none;
+  font-family: "Font Awesome 5 Solid";
+  content: "\f067";
+  position: absolute;
+  right: -6px;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+  background: #29709c;
+  border-radius: 50%;
+  border: 2px solid #ffffffe6;
+  width: 36px;
+  text-align: center;
+}
+#data-row .left-container .data-block {
+  height: 49%;
+  color: #29709c;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+  position: relative;
+  border: 1px solid #29709c;
+}
+#data-row .left-container .data-block.active {
+  background: #29709c;
+  color: white;
+}
+#data-row .left-container .data-block:before {
+  position: absolute;
+  top: 0px;
+  left: 5px;
+  font-size: 35px;
+  opacity: 0.6;
+  line-height: 35px;
+}
+#data-row .left-container .data-block .big-single-value {
+  display: inline-block;
+}
+#data-row .left-container .data-block #inner-temp-value,
+#data-row .left-container .data-block #outer-temp-value {
+  font-size: 70px;
+}
+#data-row .left-container .data-block #inner-humidity-value,
+#data-row .left-container .data-block #outer-humidity-value {
+  font-size: 30px;
+}
+#data-row .left-container .outer-temperature:before {
+  content: 'AUSSEN';
+}
+#data-row .left-container .inner-temperature:before {
+  content: 'INNEN';
+}
+#data-row .right-container {
+  float: left;
+  width: 75%;
+}
+#data-row .right-container .chart-wrapper {
+  position: relative;
+}
+#data-row .right-container .chart-wrapper canvas {
+  border: 1px solid #29709c;
+}
+#bottom-row .download-block {
+  cursor: pointer;
+  width: 25%;
+}
+#bottom-row .download-block p {
+  text-align: center;
+}
+#bottom-row .slider-wrapper {
+  width: 75%;
+}
+#bottom-row .slider-wrapper #slider {
+  margin: 2% 10%;
+}
+@media screen and (max-width: 64em) {
+  #data-row {
+    -ms-flex-direction: column;
+        flex-direction: column;
+  }
+  #data-row > div {
+    width: 100% !important;
+  }
+  #data-row .left-container {
+    padding-bottom: 20px;
+    -ms-flex-direction: row;
+        flex-direction: row;
+  }
+  #data-row .left-container .data-block {
+    padding: 30px 0;
+    width: 49.75%;
+  }
+}
+@media screen and (max-width: 30em) {
+  #data-row .left-container {
+    -ms-flex-direction: column;
+        flex-direction: column;
+  }
+  #data-row .left-container .data-block {
+    width: 100%;
+  }
+  #data-row .left-container .data-block:first-child {
+    margin-bottom: 1%;
+  }
+}
