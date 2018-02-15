@@ -1,6 +1,6 @@
 //global Variables:
 
-var filePath = "temperaturlog3.csv";
+var filePath = "temperaturlog.csv";
 
 var maxValue = ""; //max date in the csv file
 var minValue = ""; //min date in the csv file
