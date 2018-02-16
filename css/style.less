@@ -8,9 +8,8 @@
 @desktopViewportWidth: 78.75em;         // 1260px
 
 html, body {
-	height: 100%;
+	min-height: 100%;
 	margin: 0;
-	overflow: hidden;
 }
 
 body {  
@@ -45,15 +44,14 @@ body {
 
 		&:after {
 			display: none;
-			font-family: "Font Awesome 5 Solid";
-			content: "\f067";
+			font-family: "fontello";
+			content: "\e801";
 			position: absolute;
 			right: -6px;
 			top: 50%;
 			transform: translateY(-50%);
 
-			font-size: 30px;
-			font-weight: bold;
+			font-size: 25px;
 
 			color: white;
 			background: @blue;
@@ -62,6 +60,13 @@ body {
 			border: 2px solid #ffffffe6;
 			width: 36px;
 			text-align: center;
+			height: 36px;
+			line-height: 39px;
+		}
+
+		&:hover:after {
+			color: @blue;
+			background: white;
 		}
 
 		.data-block {
@@ -162,6 +167,14 @@ body {
 				padding: 30px 0;
 				width: 49.75%;
 			}
+		}
+	}
+
+	#bottom-row {
+		flex-direction: column-reverse;
+
+		& > div {
+			width: 100% !important;
 		}
 	}
 }

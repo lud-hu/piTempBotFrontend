@@ -60,19 +60,29 @@ function inflateView(){
 					type: 'linear',
 					position: 'left',
 					id: "axis1",
-					labelString: 'Temperatur innen'//,
-					//ticks: {
-					//	beginAtZero: true
-					//}
+					labelString: 'Temperatur innen',
+					ticks: {
+                        suggestedMin: 10,
+						suggestedMax: 25
+					},
+					scaleLabel: {
+						display: true,
+						labelString: "Temperatur innen in °C"
+					}
 				}, {
 					id: 'B',
 					type: 'linear',
 					position: 'right',
 					id: "axis2",
-					labelString: 'Luftfeuchtigkeit innen'//,
-					//ticks: {
-					//	beginAtZero: true
-					//}
+					labelString: 'Luftfeuchtigkeit innen',
+					ticks: {
+                        suggestedMin: 25,
+						suggestedMax: 55
+					},
+                    scaleLabel: {
+                        display: true,
+                        labelString: "Luftfeuchtigkeit innen in %"
+                    }
 				}]
 			},
 			animation: {
@@ -100,7 +110,7 @@ function inflateView(){
 			minutes: 1
 		},
 		range:{
-			min: {days: 1}
+			min: {hours: 6}
 		},
         formatter:function(val){
             var days = val.getDate(),
