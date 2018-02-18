@@ -4,6 +4,9 @@
 @chart-border-color: 1px solid @blue;
 @slider-border-color: #afafaf;
 
+@negativ-red: #e60000;
+@positive-green: #0c6d0c;
+
 @phoneLandscapeViewportWidth: 30em;     // 480px
 @tabletViewportWidth: 48em;             // 768px
 @tabletLandscapeViewportWidth: 64em;    // 1024px
@@ -32,6 +35,27 @@ body {
 
 .row {
 	display: flex;
+}
+
+//HEADER-ROW
+#header-row {
+	height: 70px;
+	margin-bottom: 10px;
+	justify-content: space-between;
+
+	.ventRec {
+		padding: 0 20px;
+		line-height: 70px;
+		color: white;
+		
+		&#true {
+			background: @positive-green;
+		}
+
+		&#false {
+			background: @negativ-red;
+		}
+	}
 }
 
 // DATA ROW

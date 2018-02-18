@@ -11,6 +11,8 @@ var oneDayInMillis = 86400000;
 
 var myChart;
 
+var initialized = false;
+
 function inflateView(){
 	
 	var toDate = new Date();
@@ -118,8 +120,6 @@ function inflateView(){
             	hour = (val.getHours()<10?'0':'') + val.getHours(),
 				minutes = (val.getMinutes()<10?'0':'') + val.getMinutes();
 
-            console.log(days + "." + month + ". " + hour + ":" + minutes);
-
             return days + "." + month + ". " + hour + ":" + minutes;
         }
 	});
@@ -151,11 +151,13 @@ function inflateView(){
 		//delete it on the page again
 		document.body.removeChild(element);
 	});
+
+	initialized = true;
 };
 
 
 	function parseRawData(rawData, fromDate, toDate){
-		
+
 		var data = { //jsonData
 			labels : [],
 			datasets : []
@@ -226,23 +228,36 @@ function inflateView(){
 					maxValue = Date.parse(results.data[results.data.length-1][0] + " " + results.data[results.data.length-1][1]);
 				}
 				
-				//set Info Section Values:
-				
+				//set Info Section Values and Ventilation Recommendation (if not already set):
+                if (initialized) return data;
+
 				if (results.data[results.data.length-1][0] == "") {
 					$('#inner-temp-value').text(results.data[results.data.length-2][2]);
 					$('#inner-humidity-value').text(results.data[results.data.length-2][3]);
 					$('#outer-temp-value').text(results.data[results.data.length-2][4]);
 					$('#outer-humidity-value').text(results.data[results.data.length-2][5]);
+
+					setVentRec(results.data[results.data.length-2][9]);
 				} else {
 					
 					$('#inner-temp-value').text(results.data[results.data.length-1][2]);
 					$('#inner-humidity-value').text(results.data[results.data.length-1][3]);
 					$('#outer-temp-value').text(results.data[results.data.length-1][4]);
 					$('#outer-humidity-value').text(results.data[results.data.length-1][5]);
+
+					setVentRec(results.data[results.data.length-1][9]);
 				}
 			}
-		}); 
-	
-										
+		});
+
 		return data;
 	}
+
+	function setVentRec(value){
+	    value = parseFloat(value.replace(",","."));
+	    if (value <= 0){
+	        $('.ventRec#false').css('display', 'block');
+        } else {
+            $('.ventRec#true').css('display', 'block');
+        }
+    }
