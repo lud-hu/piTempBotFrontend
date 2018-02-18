@@ -113,11 +113,12 @@ function inflateView(){
 			min: {hours: 6}
 		},
         formatter:function(val){
-            var days = val.getDate(),
-                month = val.getMonth() + 1,
-                year = val.getFullYear(),
-            	hour = val.getHours(),
-				minutes = val.getMinutes();
+            var days = (val.getDate()<10?'0':'') + val.getDate(),
+                month = (val.getMonth()<10?'0':'') + (val.getMonth()+1),
+            	hour = (val.getHours()<10?'0':'') + val.getHours(),
+				minutes = (val.getMinutes()<10?'0':'') + val.getMinutes();
+
+            console.log(days + "." + month + ". " + hour + ":" + minutes);
 
             return days + "." + month + ". " + hour + ":" + minutes;
         }

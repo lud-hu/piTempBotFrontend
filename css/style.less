@@ -1,6 +1,8 @@
-@background-color: linear-gradient(#24376e, #30a5be, #24376e);
+@background-color: radial-gradient(#56dbf9, #15275d);
 @blue: #29709c;
+@text-color: #737373;
 @chart-border-color: 1px solid @blue;
+@slider-border-color: #afafaf;
 
 @phoneLandscapeViewportWidth: 30em;     // 480px
 @tabletViewportWidth: 48em;             // 768px
@@ -16,6 +18,8 @@ body {
 	font-family: Lato;
 	background: @background-color;
 	background-repeat: no-repeat;
+
+	color: @text-color;
 }
 
 .main-content {
@@ -95,6 +99,10 @@ body {
 
 			.big-single-value {
 				display: inline-block;
+
+				.icon-temperatire {
+					font-size: 25px;
+				}
 			}
 
 			#inner-temp-value, #outer-temp-value {
@@ -144,9 +152,27 @@ body {
 
 	.slider-wrapper {
 		width: 75%;
+		text-align: center;
 
 		#slider {
-			margin: 2% 10%;
+			margin: 2% 10% 0 10%;
+
+			.ui-rangeSlider-container {
+				background: none;
+				border-top: 1px solid @slider-border-color;
+				border-bottom: 1px solid @slider-border-color;
+			}
+
+			.ui-rangeSlider-arrow {
+				background: none;
+				border-color: @slider-border-color;
+			}
+		}
+
+
+		p {
+			font-size: 20px;
+			margin: 10px 0;
 		}
 	}
 }
@@ -165,7 +191,7 @@ body {
 
 			.data-block {
 				padding: 30px 0;
-				width: 49.75%;
+				width: 49%;
 			}
 		}
 	}
