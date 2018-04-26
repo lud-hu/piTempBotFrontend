@@ -171,6 +171,7 @@ function parseRawData(rawData, fromDate, toDate) {
             //prepare datasets:
 
             dataset1 = {
+                //temp inner
                 data: [],
                 label: results.data[0][2],
                 borderColor: "#ffa94f",
@@ -181,6 +182,7 @@ function parseRawData(rawData, fromDate, toDate) {
             };
 
             dataset2 = {
+                //humidity inner
                 data: [],
                 label: results.data[0][3],
                 borderColor: "#157fef",
@@ -189,17 +191,18 @@ function parseRawData(rawData, fromDate, toDate) {
             };
 
             dataset3 = {
+                //temp outer
                 data: [],
                 label: results.data[0][4],
                 borderColor: "#ef0008",
                 fill: true,
                 backgroundColor: "#e500094d",
                 yAxisID: "axis1",
-                borderDash: [2, 2],
-                hidden: true
+                borderDash: [2, 2]
             };
 
             dataset4 = {
+                //humidity outer
                 data: [],
                 label: results.data[0][5],
                 borderColor: "#0009ef",
