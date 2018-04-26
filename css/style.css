@@ -28,6 +28,9 @@ body {
   -ms-flex-pack: justify;
       justify-content: space-between;
 }
+#header-row .logo img {
+  height: 100%;
+}
 #header-row .ventRec {
   padding: 0 20px;
   line-height: 70px;
